@@ -13,14 +13,12 @@ init
 
 start
 {
-	// WIP
-	// return !current.isLoading && current.currentLevel.Contains("Church_Main.irr") && current.isStoryMode;
+	return !current.isLoading && current.currentLevel.Contains("Church_Main.irr") && current.isStoryMode;
 }
 
 split
 {
-	// WIP
-	// return !current.isLoading && !current.currentLevel.Contains("MainScreen") && !old.currentLevel.Contains("MainScreen") && current.currentLevel != old.currentLevel;
+	return !current.currentLevel.Contains("MainScreen") && !old.currentLevel.Contains("MainScreen") && current.currentLevel != old.currentLevel;
 }
 
 isLoading
