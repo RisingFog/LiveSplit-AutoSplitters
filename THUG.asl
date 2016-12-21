@@ -1,14 +1,25 @@
-state("THUG")
+state("THUG", "NOCD")
 {
 	string16 lastCutscene : "THUG.exe", 0x30A230;
 	string16 currentLevel : "THUG.exe", 0x30B0A0;
 }
 
+state("THUG", "Updated Compatibility")
+{
+	string16 lastCutscene : "THUG.exe", 0x36A7C8;
+	string16 currentLevel : "THUG.exe", 0x36B638;
+}
+
 init
 {
-	print("THUG.exe has been found."); // Debug
-	print("The current level is " + current.currentLevel); // Debug
-	print("The last cutscene is " + current.lastCutscene); // Debug
+	if (memory.ReadString(modules.First().BaseAddress + 0x332, 12) == "THUG-PC NOCD")
+	{
+		version = "NOCD";
+	}
+	else
+	{
+		version = "Updated Compatibility";
+	}
 }
 
 startup
@@ -40,25 +51,25 @@ split
 	// Ignore the level transition from the CAS Bedroom to New Jersey or NJ Skateshop to Manhattan
 	if (startRun || isNYPart2 || endSCJ)
 	{
-		print("Ignored the level"); // Debug
+		print("Ignored the level");
 		return false;
 	}
 	// Most splits should be handled by this, avoids splitting on change to NJ Skateshop and during pro goals
 	if (current.currentLevel != old.currentLevel && !isNJSkateshop && !isProGoals || doneProGoals)
 	{
-		print("Most splits"); // Debug
+		print("Most splits");
 		return true;
 	}
 	// Split at the start of pro goals
 	if (isProGoals && !isNJSkateshop && old.currentLevel == vars.njSkateshop)
 	{
-		print("Start pro goals"); // Debug
+		print("Start pro goals");
 		return true;
 	}
 	// Final split at the last New Jersey Cutscene
 	if (current.lastCutscene == vars.endingCutscene && current.lastCutscene != old.lastCutscene)
 	{
-		print("Final split"); // Debug
+		print("Final split");
 		return true;
 	}
 }
