@@ -2,12 +2,14 @@ state("THUG", "NOCD")
 {
 	string16 lastCutscene : "THUG.exe", 0x30A230;
 	string16 currentLevel : "THUG.exe", 0x30B0A0;
+	string6 goalDesc : "THUG.exe", 0x30B6D9;
 }
 
 state("THUG", "Updated Compatibility")
 {
 	string16 lastCutscene : "THUG.exe", 0x36A7C8;
 	string16 currentLevel : "THUG.exe", 0x36B638;
+	string11 goalDesc : "THUG.exe", 0x36BC61;
 }
 
 init
@@ -35,6 +37,7 @@ startup
 	vars.casBedroom = "cas_bedroom";
 	vars.NewJersey = "NJ";
 	vars.Moscow = "RU";
+	vars.finalEricGoal = "homie!";
 }
 
 start
@@ -69,7 +72,7 @@ split
 		return true;
 	}
 	// Video Skip
-	if (isProGoals && current.currentLevel == vars.NewJersey && old.currentLevel == vars.Moscow)
+	if (isProGoals && current.currentLevel == vars.NewJersey && current.goalDesc == vars.finalEricGoal && current.goalDesc != old.goalDesc)
 	{
 		print("Video skip");
 		return true;
