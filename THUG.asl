@@ -33,6 +33,8 @@ startup
 	vars.Manhattan = "NY";
 	vars.ManhattanPart2Cutscene = "NY_03";
 	vars.casBedroom = "cas_bedroom";
+	vars.NewJersey = "NJ";
+	vars.Moscow = "RU";
 }
 
 start
@@ -64,6 +66,12 @@ split
 	if (isProGoals && !isNJSkateshop && old.currentLevel == vars.njSkateshop)
 	{
 		print("Start pro goals");
+		return true;
+	}
+	// Video Skip
+	if (isProGoals && current.currentLevel == vars.NewJersey && old.currentLevel == vars.Moscow)
+	{
+		print("Video skip");
 		return true;
 	}
 	// Final split at the last New Jersey Cutscene
