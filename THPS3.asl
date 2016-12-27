@@ -21,6 +21,7 @@ startup
 	vars.crowdTokyo = "\\data\\streams\\tok\\crowdI01.mp3";
 	vars.Foundry = "levels\\Foun\\Foun.qb";
 	vars.Tokyo = "levels\\Tok\\Tok.qb";
+	vars.CruiseShip = "levels\\shp\\shp.qb";
 	vars.creditsMovie = "\\data\\movies\\credits.mpg";
 	vars.proBailsMovie = "\\data\\movies\\bails01.mpg";
 }
@@ -36,7 +37,7 @@ start
 split
 {
 	// Split on change level (except for Tokyo to Cruise Ship)
-	if (current.currentLevel != old.currentLevel && old.currentLevel != vars.Tokyo)
+	if (current.currentLevel != old.currentLevel && current.currentLevel != vars.CruiseShip && old.currentLevel != vars.Tokyo)
 	{
 		return true;
 	}
