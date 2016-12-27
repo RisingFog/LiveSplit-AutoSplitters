@@ -17,12 +17,12 @@ init
 
 startup
 {
-	vars.mainMenu = "levels\skateshop\skateshop.qb";
-	vars.crowdTokyo = "\data\streams\tok\crowdI01.mp3";
-	vars.Foundry = "levels\Foun\Foun.qb";
-	vars.Tokyo = "levels\Tok\Tok.qb";
-	vars.creditsMovie = "\data\movies\credits.mpg"
-	vars.proBailsMovie = "\data\movies\bails01.mpg"
+	vars.mainMenu = "levels\\skateshop\\skateshop.qb";
+	vars.crowdTokyo = "\\data\\streams\\tok\\crowdI01.mp3";
+	vars.Foundry = "levels\\Foun\\Foun.qb";
+	vars.Tokyo = "levels\\Tok\\Tok.qb";
+	vars.creditsMovie = "\\data\\movies\\credits.mpg";
+	vars.proBailsMovie = "\\data\\movies\\bails01.mpg";
 }
 
 start
@@ -59,5 +59,8 @@ reset
 
 isLoading
 {
-	return current.isLoading || current.isTimerRunning || current.isPaused;
+	if (current.isLoading || !current.isTimerRunning || current.isPaused)
+	{
+		return true;
+	}
 }
