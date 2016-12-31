@@ -31,7 +31,7 @@ split
 		return true;
 	}
 	// Split when final medal is collected
-	if ((current.careerTotalCash == (old.careerTotalCash + 12500) || (current.careerTotalCash == (old.careerTotalCash + 62500) && current.currentLevel == "Bullring")
+	if ((current.careerTotalCash == (old.careerTotalCash + 12500) || (current.careerTotalCash == (old.careerTotalCash + 62500))) && current.currentLevel == "Bullring")
 	{
 		return true;
 	}
