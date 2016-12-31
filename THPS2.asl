@@ -1,7 +1,7 @@
 state("THawk2")
 {
 	string16 currentLevel : "THawk2.exe", 0x29D198;
-	int careerTotalCash : "THawk2.exe", 0x1656D0;
+	int compCash : "THawk2.exe", 0x15CB8C;
 	byte isGamePaused : "THawk2.exe", 0x15E864;
 	byte isRunPaused : "THawk2.exe", 0x29E050;
 }
@@ -17,7 +17,7 @@ init
 
 start
 {
-	if (current.currentLevel == "Hangar" && old.currentLevel == "" && current.careerTotalCash == 0)
+	if (current.currentLevel == "Hangar" && old.currentLevel == "")
 	{
 		return true;
 	}
@@ -31,7 +31,7 @@ split
 		return true;
 	}
 	// Split when final medal is collected
-	if ((current.careerTotalCash == (old.careerTotalCash + 12500) || (current.careerTotalCash == (old.careerTotalCash + 62500))) && current.currentLevel == "Bullring")
+	if (current.compCash >= 12500 && current.compCash != old.compCash && current.currentLevel == "Bullring")
 	{
 		return true;
 	}
