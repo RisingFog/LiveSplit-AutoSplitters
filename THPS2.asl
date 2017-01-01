@@ -26,7 +26,7 @@ start
 split
 {
 	// Split on level changes (except when going to main menu)
-	if (current.currentLevel != old.currentLevel && old.currentLevel != "")
+	if (current.currentLevel != old.currentLevel && current.currentLevel != "")
 	{
 		return true;
 	}
