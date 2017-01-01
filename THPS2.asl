@@ -6,15 +6,6 @@ state("THawk2")
 	byte isRunPaused : "THawk2.exe", 0x29E050;
 }
 
-init
-{
-	print("THawk2.exe has been found."); // Debug
-	print("The current level is " + current.currentLevel); // Debug
-	print("The total career cash total is " + current.careerTotalCash); // Debug
-	print("Is the game paused? (1/Yes 0/No) " + current.isGamePaused); // Debug
-	print("Is the timer paused? (1/Yes 0/No) " + current.isRunPaused); // Debug
-}
-
 start
 {
 	if (current.currentLevel == "Hangar" && old.currentLevel == "")
