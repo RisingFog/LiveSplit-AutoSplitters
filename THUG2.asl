@@ -16,6 +16,15 @@ state("THUG2 English")
 	byte isRunCompleted : "THUG2 English.exe", 0x2F3624, 0x1A18, 0xC;
 }
 
+state("THEMOD 1.3")
+{
+	string16 lastCutscene : "THEMOD 1.3.exe", 0x2F1058;
+	string16 currentLevel : "THEMOD 1.3.exe", 0x3CE698;
+	string32 loadingScreen: "THEMOD 1.3.exe", 0x27E95C, 0x0;
+	byte totalClassicGoals : "THEMOD 1.3.exe", 0x3CE478, 0x20, 0x5EE;
+	byte isRunCompleted : "THEMOD 1.3.exe", 0x2F3624, 0x1A18, 0xC;
+}
+
 init
 {
 	print("THUG2.exe has been found."); // Debug
@@ -41,7 +50,7 @@ start
 		return true;
 	}
 	// Classic Mode
-	if (current.currentLevel == "BA" && old.currentLevel == vars.mainMenu && current.loadingScreen == vars.barcelonaClassic && current.totalClassicGoals == 0)
+	if (current.loadingScreen == vars.barcelonaClassic && old.loadingScreen != current.loadingScreen && current.totalClassicGoals == 0)
 	{
 		return true;
 	}
@@ -50,7 +59,7 @@ start
 split
 {
 	// Split on change level
-	if (current.currentLevel != old.currentLevel)
+	if (current.currentLevel != old.currentLevel && old.currentLevel != vars.mainMenu)
 	{
 		return true;
 	}
