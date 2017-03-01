@@ -69,7 +69,7 @@ split
 		return true;
 	}
 	// Final split for Classic (all variants)
-	if (current.isRunCompleted == 1 && current.isRunCompleted != old.isRunCompleted && (current.currentLevel == "SE2" && current.totalClassicGoals == 130 || current.totalClassicGoals == 60 || current.totalClassicGoals == 80))
+	if (current.isRunCompleted == 1 && current.isRunCompleted != old.isRunCompleted && (current.currentLevel == "SE2" && (current.totalClassicGoals == 130 || current.totalClassicGoals == 60 || current.totalClassicGoals == 80)))
 	{
 		return true;
 	}
