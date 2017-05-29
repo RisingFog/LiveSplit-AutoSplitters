@@ -27,8 +27,3 @@ split
 		return true;
 	}
 }
-
-reset
-{
-	return current.isOnTitleScreen && current.isOnTitleScreen != old.isOnTitleScreen;
-}
