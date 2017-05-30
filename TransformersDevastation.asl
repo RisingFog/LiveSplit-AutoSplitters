@@ -1,6 +1,6 @@
 state("TransformersDevastation")
 {
-	string256 currentCutscene : "TransformersDevastation.exe", 0x762DF4, 0x2D8, 0x1DC, 0x588;
+	string32 currentCutscene : "TransformersDevastation.exe", 0x762DF4, 0x2D8, 0x1DC, 0x588;
 	bool isMissionCompleted: "TransformersDevastation.exe", 0xA6A684;
 }
 
