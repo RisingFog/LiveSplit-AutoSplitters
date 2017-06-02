@@ -1,10 +1,9 @@
 state("NieRAutomata", "1.0")
 {
-	// NOT IMPLEMENTED
-	bool isWorldLoaded : 0x110ADC0;
-	byte playerNameSetStatus : 0x147B4BC;
-	string32 currentCutscene : 0x19925E0, 0x1F4;
-	bool isCutscenePlaying : 0x1415B10;
+	bool isWorldLoaded : 0x18F3978;
+	byte playerNameSetStatus : 0x1461B38;
+	string32 currentCutscene : 0x19925E0, 0x1F4; // NOT IMPLEMENTED YET
+	bool isCutscenePlaying : 0x1415B10; // NOT IMPLEMENTED YET
 }
 
 state("NieRAutomata", "1.01")
@@ -25,7 +24,7 @@ init
 		case 106266624:
 			version = "1.01";
 			break;
-        	default:
+        default:
 			// Presumed to be current Steam Version
 			version = "1.01";
 			break;
@@ -46,7 +45,7 @@ startup
 	"movie/ev0482.usm", // Grun Fight Finish
 	"movie/ev0550.usm", // Copied City Finish
 	"movie/ev0570.usm", // So-Shi Fight Finish [A/B]
-	"movie/ev0655.usm", // Boko-Shi Fight Finish [A/B]
+	"movie/ev0655.usm", // Boku-Shi Fight Finish [A/B]
 	"movie/ev0693.usm", // Ending A Finish
 	// Ending B Cutscenes
 	"movie/ev0262.usm", // Adam Desert Fight Finish
@@ -55,20 +54,33 @@ startup
 	"movie/ev0483.usm", // Grun Fight Finish
 	"movie/ev0552.usm", // Copied City Finish
 	"movie/ev0694.usm", // Ending B Finish
-	// Ending C/D Cutscenes (In Progress)
+	// Ending C/D Cutscenes
 	"movie/ev0830.usm", // Bunker Finish
-	// Ending E Cutscene
-	"movie/ev1270.usm"
+	"movie/ev0875.usm", // A2 Desert Fight Finish
+	"movie/ev0940.usm", // Meat Box Finish
+	"movie/ev0970.usm", // Pascal Finish
+	"movie/ev1010.usm", // Soul Box Finish
+	"movie/ev1060.usm", // God Box Finish
+	"movie/ev1125.usm", // 2B Clones Finish
+	"movie/ev1190.usm", // Red Girls Finish
+	"movie/ev1210.usm", // Ko-Shi & Ro-Shi Finish
+	"movie/ev1232.usm", // Ending D Finish Variation 1
+	"movie/ev1233.usm", // Ending D Finish Variation 2
+	"movie/ev1234.usm", // Ending D Finish Variation 3
+	"movie/ev1235.usm", // Ending D Finish Variation 4
+	"movie/ev1250.usm", // Ending C Finish
+	// Ending E Cutscenes
+	"movie/ev1270.usm" // Ending E Finish
 	};
 }
 
 start 
 {
 	// Thanks Kate for this auto-start logic
-    if (current.playerNameSetStatus == 1 && current.isWorldLoaded && current.isWorldLoaded != old.isWorldLoaded)
-    {
-        return true;
-    }
+	if (current.playerNameSetStatus == 1 && current.isWorldLoaded && current.isWorldLoaded != old.isWorldLoaded)
+	{
+		return true;
+	}
 }
 
 split
