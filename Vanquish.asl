@@ -8,7 +8,7 @@ state("Vanquish")
 
 start
 {
-	if (current.lastCheckpoint == "C100_START" && current.lastCheckpoint != old.lastCheckpoint && !current.isOnTitleScreen)
+	if (current.currentCutscene.Contains("ev51.sfd") && current.currentCutscene != old.currentCutscene && !current.isOnTitleScreen)
 	{
 		return true;
 	}
