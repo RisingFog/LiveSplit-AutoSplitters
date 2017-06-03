@@ -45,7 +45,7 @@ startup
 	"movie/ev0482.usm", // Grun Fight Finish
 	"movie/ev0550.usm", // Copied City Finish
 	"movie/ev0580.usm", // So-Shi Fight Finish [A/B]
-	"movie/ev0655.usm", // Boku-Shi Fight Finish [A/B]
+	"movie/ev0642.usm", // Boku-Shi Fight Finish
 	"movie/ev0693.usm", // Ending A Finish
 	// Ending B Cutscenes
 	"movie/ev0262.usm", // Adam Desert Fight Finish
@@ -53,6 +53,7 @@ startup
 	"movie/ev0352.usm", // Negotiations Finish
 	"movie/ev0483.usm", // Grun Fight Finish
 	"movie/ev0552.usm", // Copied City Finish
+	"movie/ev0650.usm", // Boku-Shi Fight Finish
 	"movie/ev0694.usm", // Ending B Finish
 	// Ending C/D Cutscenes
 	"movie/ev0830.usm", // Bunker Finish
