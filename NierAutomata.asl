@@ -11,7 +11,7 @@ state("NieRAutomata", "1.01")
 	bool isWorldLoaded : 0x110ADC0;
 	byte playerNameSetStatus : 0x147B4BC;
 	string32 currentCutscene : 0x19925E0, 0x1F4;
-	bool isCutscenePlaying : 0x1415B10;
+	bool isCutscenePlaying : 0x1483974;
 }
 
 init
@@ -85,7 +85,7 @@ start
 
 split
 {
-    foreach (string cutscene in vars.Cutscenes)
+	foreach (string cutscene in vars.Cutscenes)
 	{
 		if (current.currentCutscene == cutscene && current.isCutscenePlaying && current.isCutscenePlaying != old.isCutscenePlaying)
 		{
