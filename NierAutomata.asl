@@ -44,7 +44,7 @@ startup
 	"movie/ev0400.usm", // A2 Fight Finish [A/B]
 	"movie/ev0482.usm", // Grun Fight Finish
 	"movie/ev0550.usm", // Copied City Finish
-	"movie/ev0570.usm", // So-Shi Fight Finish [A/B]
+	"movie/ev0580.usm", // So-Shi Fight Finish [A/B]
 	"movie/ev0655.usm", // Boku-Shi Fight Finish [A/B]
 	"movie/ev0693.usm", // Ending A Finish
 	// Ending B Cutscenes
