@@ -3,6 +3,7 @@ state("THUG", "NOCD")
 	string16 lastCutscene : "THUG.exe", 0x30A230;
 	string16 currentLevel : "THUG.exe", 0x30B0A0;
 	string6 goalDesc : "THUG.exe", 0x30B6D9;
+	bool isLoading : "THUG.exe", 0x2A8C5C;
 }
 
 state("THUG", "Updated Compatibility")
@@ -10,6 +11,7 @@ state("THUG", "Updated Compatibility")
 	string16 lastCutscene : "THUG.exe", 0x36A7C8;
 	string16 currentLevel : "THUG.exe", 0x36B638;
 	string11 goalDesc : "THUG.exe", 0x36BC61;
+	bool isLoading : "THUG.exe", 0x3033F4;
 }
 
 init
@@ -88,4 +90,9 @@ split
 reset
 {
 	return current.currentLevel == vars.mainMenu && old.currentLevel != vars.mainMenu;
+}
+
+isLoading
+{
+	return current.isLoading;
 }
