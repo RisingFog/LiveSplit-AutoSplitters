@@ -3,7 +3,7 @@ state("THUG", "NOCD")
 	string16 lastCutscene : "THUG.exe", 0x30A230;
 	string16 currentLevel : "THUG.exe", 0x30B0A0;
 	string6 goalDesc : "THUG.exe", 0x30B6D9;
-	bool isLoading : "THUG.exe", 0x2A8C5C;
+	bool isLoading : "THUG.exe", 0x23DD8C, 0x6C8, 0x188;
 }
 
 state("THUG", "Updated Compatibility")
@@ -11,7 +11,7 @@ state("THUG", "Updated Compatibility")
 	string16 lastCutscene : "THUG.exe", 0x36A7C8;
 	string16 currentLevel : "THUG.exe", 0x36B638;
 	string11 goalDesc : "THUG.exe", 0x36BC61;
-	bool isLoading : "THUG.exe", 0x3033F4;
+	bool isLoading : "THUG.exe", 0x29851C, 0x24, 0x174;
 }
 
 init
