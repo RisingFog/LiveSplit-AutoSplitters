@@ -36,7 +36,7 @@ split
 
 reset
 {
-	if (current.currentLevel == "skateshop" && current.proPoints == 0 and current.proPoints != old.proPoints)
+	if (current.currentLevel == "skateshop" && current.proPoints == 0 && current.proPoints != old.proPoints)
 	{
 		return true;
 	}
