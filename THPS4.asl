@@ -3,7 +3,6 @@ state("Skate4")
 	string16 currentLevel : "Skate4.exe", 0x6B6BF0;
 	byte proPoints : "Skate4.exe", 0x6B5B48, 0x86c, 0x20;
 	bool isLoading : "Skate4.exe", 0x6728C0;
-	string16 loadSuccessful : "Skate4.exe", 0x234780, 0x618, 0x660;
 }
 
 init
@@ -37,7 +36,7 @@ split
 
 reset
 {
-	if (current.currentLevel == "skateshop" && current.proPoints == 0 && current.loadSuccessful == "Load successful" && current.loadSuccessful != old.loadSuccessful)
+	if (current.currentLevel == "skateshop" && current.proPoints == 0)
 	{
 		return true;
 	}
