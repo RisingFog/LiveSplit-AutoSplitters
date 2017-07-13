@@ -2,7 +2,7 @@ state("NieRAutomata", "1.0")
 {
 	bool isWorldLoaded : 0x18F3978;
 	byte playerNameSetStatus : 0x1461B38;
-	string32 currentCutscene : 0x196DAE0, 0x18;
+	string32 currentCutscene : 0x1978868, 0x1F4;
 	bool isCutscenePlaying : 0x146A1AC;
 }
 
@@ -10,7 +10,7 @@ state("NieRAutomata", "1.01")
 {
 	bool isWorldLoaded : 0x110ADC0;
 	byte playerNameSetStatus : 0x147B4BC;
-	string32 currentCutscene : 0x19925E0, 0x1F4;
+	string32 currentCutscene : 0x19925E8, 0x1F4;
 	bool isCutscenePlaying : 0x1483974;
 }
 
