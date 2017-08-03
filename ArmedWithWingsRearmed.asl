@@ -18,6 +18,16 @@ state("Armed with Wings Rearmed", "1.0.3")
 	int sessionScore : "Adobe AIR.dll", 0x13BC92C, 0x1EC, 0x9C, 0x1E4;
 }
 
+state("Armed with Wings Rearmed", "1.0.4")
+{
+	byte startingLevel : "Adobe AIR.dll", 0x137D4CC, 0x1EC, 0x9C, 0x260;
+	int sessionTimer : "Adobe AIR.dll", 0x137D4CC, 0x1EC, 0x9C, 0x1E4;
+	bool inGame : "Adobe AIR.dll", 0x137D4CC, 0x1EC, 0x9C, 0x98;
+	bool fromGametoMenu : "Adobe AIR.dll", 0x137D4CC, 0x1EC, 0x9C, 0xC0;
+	bool fromCutscenetoGame : "Adobe AIR.dll", 0x137D4CC, 0x1EC, 0x9C, 0x90;
+	int sessionScore : "Adobe AIR.dll", 0x137D4CC, 0x1EC, 0x9C, 0x1E4;
+}
+
 init
 {
 	int moduleSize = modules.First(x => x.ModuleName == "Adobe AIR.dll").ModuleMemorySize;
@@ -27,6 +37,9 @@ init
 			break;
 		case 22810624:
 			version = "1.0.3";
+			break;
+		case 22544384:
+			version = "1.0.4";
 			break;
 	}
 	print("ModuleMemorySize: " + modules.First(x => x.ModuleName == "Adobe AIR.dll").ModuleMemorySize.ToString());
