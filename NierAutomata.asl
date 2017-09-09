@@ -2,7 +2,8 @@ state("NieRAutomata", "1.0")
 {
 	bool isWorldLoaded : 0x18F3978;
 	byte playerNameSetStatus : 0x1461B38;
-	string32 currentCutscene : 0x1978868, 0x1F4;
+	string32 currentCutscene1 : 0x1978860, 0x1F4;
+	string32 currentCutscene2 : 0x1978860, 0x1F4;
 	bool isCutscenePlaying : 0x146A1AC;
 }
 
@@ -10,7 +11,8 @@ state("NieRAutomata", "1.01")
 {
 	bool isWorldLoaded : 0x110ADC0;
 	byte playerNameSetStatus : 0x147B4BC;
-	string32 currentCutscene : 0x19925E8, 0x1F4;
+	string32 currentCutscene1 : 0x19925E8, 0x1F4;
+	string32 currentCutscene2 : 0x19925E0, 0x1F4;
 	bool isCutscenePlaying : 0x1483974;
 }
 
@@ -88,7 +90,7 @@ split
 {
 	foreach (string cutscene in vars.Cutscenes)
 	{
-		if (current.currentCutscene == cutscene && current.isCutscenePlaying && current.isCutscenePlaying != old.isCutscenePlaying)
+		if ((current.currentCutscene1 == cutscene || current.currentCutscene2 == cutscene) && current.isCutscenePlaying && current.isCutscenePlaying != old.isCutscenePlaying)
 		{
 			return true;
 		}
