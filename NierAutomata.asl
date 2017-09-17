@@ -5,6 +5,7 @@ state("NieRAutomata", "1.0")
 	string32 currentCutscene1 : 0x1978868, 0x1F4;
 	string32 currentCutscene2 : 0x1978860, 0x1F4;
 	bool isCutscenePlaying : 0x146A1AC;
+	bool isLoading : 0x18DD444;
 }
 
 state("NieRAutomata", "1.01")
@@ -14,6 +15,7 @@ state("NieRAutomata", "1.01")
 	string32 currentCutscene1 : 0x19925E8, 0x1F4;
 	string32 currentCutscene2 : 0x19925E0, 0x1F4;
 	bool isCutscenePlaying : 0x1483974;
+	bool isLoading : 0x18F6EE4;
 }
 
 init
@@ -24,10 +26,6 @@ init
 			version = "1.0";
 			break;
 		case 106266624:
-			version = "1.01";
-			break;
-        default:
-			// Presumed to be current Steam Version
 			version = "1.01";
 			break;
 	}
@@ -95,4 +93,9 @@ split
 			return true;
 		}
 	}
+}
+
+isLoading
+{
+	return current.isLoading;
 }
