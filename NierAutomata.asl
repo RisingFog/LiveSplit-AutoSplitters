@@ -15,7 +15,7 @@ state("NieRAutomata", "1.01")
 	string32 currentCutscene1 : 0x19925E8, 0x1F4;
 	string32 currentCutscene2 : 0x19925E0, 0x1F4;
 	bool isCutscenePlaying : 0x1483974;
-	bool isLoading : 0x18F6EE4;
+	bool isLoading : 0x147BF50;
 }
 
 init
