@@ -18,7 +18,7 @@ state("THUGONE", "Updated Compatibility")
 {
 	string16 lastCutscene : "THUGONE.exe", 0x36A7C8;
 	string16 currentLevel : "THUGONE.exe", 0x36B638;
-	string11 goalDesc : "THUGONE.exe", 0x36BC61;
+	string6 goalDesc : "THUGONE.exe", 0x36BC61;
 	bool isLoading : "THUGONE.exe", 0x29851C, 0x24, 0x174;
 }
 
