@@ -1,45 +1,22 @@
-state("THUG", "NOCD")
+state("THUG")
 {
-	string16 lastCutscene : "THUG.exe", 0x30A230;
-	string16 currentLevel : "THUG.exe", 0x30B0A0;
-	string6 goalDesc : "THUG.exe", 0x30B6D9;
-	bool isLoading : "THUG.exe", 0x23DD8C, 0x6C8, 0x188;
+	string16 lastCutscene : 0x36A7C8;
+	string16 currentLevel : 0x36B638;
+	byte chapterNumber : 0x36A788, 0x64C;
+	bool isLoading : 0x29851C, 0x24, 0x174;
 }
 
-state("THUG", "Updated Compatibility")
+state("THUGONE")
 {
-	string16 lastCutscene : "THUG.exe", 0x36A7C8;
-	string16 currentLevel : "THUG.exe", 0x36B638;
-	string11 goalDesc : "THUG.exe", 0x36BC61;
-	bool isLoading : "THUG.exe", 0x29851C, 0x24, 0x174;
-}
-
-state("THUGONE", "Updated Compatibility")
-{
-	string16 lastCutscene : "THUGONE.exe", 0x36A7C8;
-	string16 currentLevel : "THUGONE.exe", 0x36B638;
-	string6 goalDesc : "THUGONE.exe", 0x36BC61;
-	bool isLoading : "THUGONE.exe", 0x29851C, 0x24, 0x174;
-}
-
-
-init
-{
-	if (memory.ReadString(modules.First().BaseAddress + 0x332, 12) == "THUG-PC NOCD")
-	{
-		version = "NOCD";
-	}
-	else
-	{
-		version = "Updated Compatibility";
-	}
+	string16 lastCutscene : 0x36A7C8;
+	string16 currentLevel : 0x36B638;
+	byte chapterNumber : 0x36A788, 0x64C;
+	bool isLoading : 0x29851C, 0x24, 0x174;
 }
 
 startup
 {
 	vars.startingCutscene = "Intro_02";
-	vars.proGoalsCutscene = "NJ_07";
-	vars.endProGoalsCutscene = "NJ_09";
 	vars.endingCutscene = "NJ_10";
 	vars.mainMenu = "skateshop";
 	vars.njSkateshop = "nj_skateshop";
@@ -48,7 +25,8 @@ startup
 	vars.casBedroom = "cas_bedroom";
 	vars.NewJersey = "NJ";
 	vars.Moscow = "RU";
-	vars.finalEricGoal = "homie!";
+	vars.proGoalsChapter = 25;
+	vars.finalChapter = 26;
 }
 
 start
@@ -62,8 +40,8 @@ split
 	bool endSCJ = current.currentLevel == "VC" && old.currentLevel == vars.casBedroom;
 	bool isNJSkateshop = current.currentLevel == vars.njSkateshop;
 	bool isNYPart2 = current.currentLevel == vars.Manhattan && current.lastCutscene == vars.ManhattanPart2Cutscene;
-	bool isProGoals = current.lastCutscene == vars.proGoalsCutscene;
-	bool doneProGoals = current.lastCutscene == vars.endProGoalsCutscene && old.lastCutscene == vars.proGoalsCutscene;
+	bool isProGoals = current.chapterNumber == vars.proGoalsChapter;
+	bool doneProGoals = current.chapterNumber == vars.finalChapter;
 	// Ignore the level transition from the CAS Bedroom to New Jersey or NJ Skateshop to Manhattan
 	if (startRun || isNYPart2 || endSCJ)
 	{
@@ -71,7 +49,7 @@ split
 		return false;
 	}
 	// Most splits should be handled by this, avoids splitting on change to NJ Skateshop and during pro goals
-	if (current.currentLevel != old.currentLevel && !isNJSkateshop && !isProGoals || doneProGoals)
+	if (current.currentLevel != old.currentLevel && !isNJSkateshop && !isProGoals)
 	{
 		print("Most splits");
 		return true;
@@ -82,10 +60,10 @@ split
 		print("Start pro goals");
 		return true;
 	}
-	// Video Skip
-	if (isProGoals && current.currentLevel == vars.NewJersey && current.goalDesc == vars.finalEricGoal && current.goalDesc != old.goalDesc)
+	// Split at the end of pro goals
+	if (doneProGoals && current.currentLevel == vars.NewJersey && current.chapterNumber != old.chapterNumber)
 	{
-		print("Video skip");
+		print("Done pro goals");
 		return true;
 	}
 	// Final split at the last New Jersey Cutscene
