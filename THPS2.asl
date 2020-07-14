@@ -2,8 +2,8 @@ state("THawk2")
 {
 	string16 currentLevel : "THawk2.exe", 0x29D198;
 	int compCash : "THawk2.exe", 0x15CB8C;
-	byte isGamePaused : "THawk2.exe", 0x15E864;
-	byte isRunPaused : "THawk2.exe", 0x29E050;
+	bool isGamePaused : "THawk2.exe", 0x15E864;
+	bool isRunPaused : "THawk2.exe", 0x29E050;
 }
 
 start
