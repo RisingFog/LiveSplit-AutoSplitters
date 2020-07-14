@@ -8,7 +8,7 @@ state("THawk2")
 
 start
 {
-	if (current.currentLevel == "Hangar" && current.isRunPaused == 0 and old.isRunPaused == 1)
+	if (current.currentLevel == "Hangar" && current.isRunPaused && old.isRunPaused)
 	{
 		return true;
 	}
@@ -30,5 +30,5 @@ split
 
 isLoading
 {
-	return current.isGamePaused == 1 || current.isRunPaused == 1;
+	return current.isGamePaused || current.isRunPaused;
 }
