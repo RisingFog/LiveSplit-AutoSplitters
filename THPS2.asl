@@ -8,7 +8,7 @@ state("THawk2")
 
 start
 {
-	if (current.currentLevel == "Hangar" && current.isRunPaused && old.isRunPaused)
+	if (current.currentLevel == "Hangar" && !current.isRunPaused && old.isRunPaused)
 	{
 		return true;
 	}
