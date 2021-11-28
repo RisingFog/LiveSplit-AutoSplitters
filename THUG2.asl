@@ -38,7 +38,7 @@ startup
 start
 {
 	// Story Mode
-	if (current.currentLevel == "BO" && current.lastCutscene == "TR_1C")
+	if (current.currentLevel == "BO")
 	{
 		return true;
 	}
