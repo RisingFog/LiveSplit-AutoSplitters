@@ -38,7 +38,7 @@ startup
 start
 {
 	// Story Mode
-	if (current.currentLevel == "BO")
+	if (old.currentLevel == "TR" && current.currentLevel == "BO")
 	{
 		return true;
 	}
